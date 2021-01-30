@@ -1,0 +1,112 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!--Bootstrap here-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+     <!--     -->
+
+    <style>
+        #mainBar{
+            width:50%;
+            align-items:left;
+            padding-top:px;
+        
+
+        }
+        #firstdiv{
+            background-color: rgba(33, 163, 163, 0.897);
+            width: 100%;
+            height: 15vh;
+            align-items: center;
+            justify-content: center;
+            display: flex;
+        }
+        #textbar{
+            /*border:groove;*/
+            border-radius: 10px;
+            background-color: rgb(227, 238, 230);
+            width: 42%;
+        }
+        #textarea{
+            border:double;
+            border-color: rgb(233, 235, 146); 
+            margin-left:8px; 
+            width:60%;
+        
+        }
+        
+        #resultarea{
+            background-color: rgb(241, 240, 231);
+            width:50%;
+            float:right;
+            text-align: center;
+        }
+        .border{
+            border-left: 4px;
+            border:solid;
+            border-color: black;
+        }
+        #answerfont{
+            font-size:xxx-large;
+            font-weight: bold;
+        }
+        
+    </style>
+    
+    <title>Sentiment Analysis</title>
+</head>
+<body>
+    
+    <div id="firstdiv"class="container-fluid">
+        <h1 > Machine Learning: Sentiment Analysis Project</h1>
+
+    </div>
+    
+    <div class="jumbotron jumbotron-fluid" >
+        <div  class="container">
+            <div id="resultarea">
+                <h2  >Result :</h2><br>
+                <h1 id="answerfont"> {{answer}} </h1>
+
+           </div>
+           <div  id="textbar">
+                <h2 style="text-align: center;" >Enter your Review here :</h2>
+                <br>
+                <p style="color:crimson; margin-left: 8px;">give your valuable feedback here and I'll tell you about review :</p>
+             <form action="analyse" method="post">
+                 {% csrf_token %}
+                <textarea id="textarea" rows="3" name="usreview" placeholder="ex: wow awesome project" required ></textarea>
+                
+                <input style="margin-bottom:30px;margin-left: 10px;" type="submit" class="btn btn-warning" value="submit">
+              <!---  <button onclick="javascript:history.go(-1)" style="margin-bottom:30px;margin-left: 10px;" class="btn btn-warning" >Refresh</button>   -->
+                <a href="../"><input style="margin-bottom:30px;margin-left: 10px; background-color:rgba(33, 163, 163, 0.897); border:none" type="button" value="Refresh" class="btn btn-warning" /></a>
+            </form>
+                
+           </div>
+           
+        </div>
+      </div>
+
+    <div class="container">
+        <p>Developer:</p>
+      <div >
+        <img src="{% static 'images/suraj_img0.jpg' %}" width='100px' alt='suraj'  />
+        <div  class="card-body" >
+          <h4  class="card-title">Suraj</h4>
+          <p  class="card-text"><h4><em>B.Tech 3rd (Electronics Engineering)</p>
+          <p> Kamla Nehru Institute of Technology,Sultanpur, India.</em><h4></p>
+          <a href="https://www.linkedin.com/in/suraj-singh-17414b184/" target="_blank" class="btn btn-primary">See Profile</a>
+        </div>
+      </div>
+    </div>
+
+</body>
+</html>
